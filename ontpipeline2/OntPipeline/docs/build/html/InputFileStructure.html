@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Input File Structure &mdash; ontpipeline2  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Output File Structure" href="OutputFileStructure.html" />
+    <link rel="prev" title="Installation" href="GetStarted.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ontpipeline2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="GetStarted.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Input File Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#start-from-base-calling">Start from Base Calling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-from-demultiplexing">Start from Demultiplexing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-from-reads-filter">Start from Reads Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-from-assembly">Start from Assembly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-from-polishing">Start from Polishing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-sheet">Sample Sheet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="OutputFileStructure.html">Output File Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GeneralSettings.html">General Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BasecallingSettings.html">Base Calling Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DemultiplexingSettings.html">Demultiplexing Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadsFilterSettings.html">Reads Filter Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AssemblySettings.html">Assembly Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolishingSettings.html">Polishing Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QandA.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ontpipeline2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Input File Structure</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/InputFileStructure.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="input-file-structure">
+<h1>Input File Structure<a class="headerlink" href="#input-file-structure" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="start-from-base-calling">
+<h2>Start from Base Calling<a class="headerlink" href="#start-from-base-calling" title="Permalink to this headline">¶</a></h2>
+<p>Start the pipeline from Base calling.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ONT_Reads_Directory/
+├── HPz800_20180821_FAJ18422_MN17776_sequencing_run_VIM4_Janina_26844_read_11_ch_171_strand.fast5
+├── HPz800_20180821_FAJ18422_MN17776_sequencing_run_VIM4_Janina_26844_read_11_ch_203_strand.fast5
+├── HPz800_20180821_FAJ18422_MN17776_sequencing_run_VIM4_Janina_26844_read_15_ch_344_strand.fast5
+├── HPz800_20180821_FAJ18422_MN17776_sequencing_run_VIM4_Janina_26844_read_17_ch_249_strand.fast5
+├── HPz800_20180821_FAJ18422_MN17776_sequencing_run_VIM4_Janina_26844_read_19_ch_397_strand.fast5
+└── ......
+
+Illumina_Reads_Directory/
+├── Prefix01_HQ_1.fastq.gz
+├── Prefix01_HQ_2.fastq.gz
+├── Prefix02_HQ_1.fastq.gz
+├── Prefix02_HQ_2.fastq.gz
+├── Prefix03_HQ_1.fastq.gz
+├── Prefix03_HQ_2.fastq.gz
+└── ......
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Illumina reads files naming structure for each pair: Prefix_HQ_1.fastq.gz  Prefix_HQ_2.fastq.gz</li>
+<li>If there is without “HQ” in the file name, these Illumina reads will be trimmed.</li>
+<li>“Prefix” is the sample name, each pair should has its own prefix.</li>
+<li>“*” means arbitrarily long characters.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<ul class="last simple">
+<li>Do not use underscore (“_”) in the prefix.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="start-from-demultiplexing">
+<h2>Start from Demultiplexing<a class="headerlink" href="#start-from-demultiplexing" title="Permalink to this headline">¶</a></h2>
+<p>Start the pipeline from Demultiplexing.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ONT_Reads_Directory/
+├── fastq_runid_50a6171cadcfb6b5cb2dae4e75a0ccc05b71e3d8_0.fastq
+├── fastq_runid_50a6171cadcfb6b5cb2dae4e75a0ccc05b71e3d8_1.fastq
+├── fastq_runid_50a6171cadcfb6b5cb2dae4e75a0ccc05b71e3d8_2.fastq
+├── fastq_runid_50a6171cadcfb6b5cb2dae4e75a0ccc05b71e3d8_3.fastq
+├── fastq_runid_50a6171cadcfb6b5cb2dae4e75a0ccc05b71e3d8_4.fastq
+└── ......
+
+Illumina_Reads_Directory/
+├── Prefix01_HQ_1.fastq.gz
+├── Prefix01_HQ_2.fastq.gz
+├── Prefix02_HQ_1.fastq.gz
+├── Prefix02_HQ_2.fastq.gz
+├── Prefix03_HQ_1.fastq.gz
+├── Prefix03_HQ_2.fastq.gz
+└── ......
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-from-reads-filter">
+<h2>Start from Reads Filter<a class="headerlink" href="#start-from-reads-filter" title="Permalink to this headline">¶</a></h2>
+<p>Start the pipeline from Reads Filter.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ONT_Reads_Directory/
+├── Prefix01.fastq
+├── Prefix02.fastq
+├── Prefix03.fastq
+├── Prefix04.fastq
+├── Prefix05.fastq
+└── ......
+
+Illumina_Reads_Directory/
+├── Prefix01_HQ_1.fastq.gz
+├── Prefix01_HQ_2.fastq.gz
+├── Prefix02_HQ_1.fastq.gz
+├── Prefix02_HQ_2.fastq.gz
+├── Prefix03_HQ_1.fastq.gz
+├── Prefix03_HQ_2.fastq.gz
+└── ......
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-from-assembly">
+<h2>Start from Assembly<a class="headerlink" href="#start-from-assembly" title="Permalink to this headline">¶</a></h2>
+<p>Start the pipeline from Assembly.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ONT_Reads_Directory/
+├── Prefix01.fastq
+├── Prefix02.fastq
+├── Prefix03.fastq
+├── Prefix04.fastq
+├── Prefix05.fastq
+└── ......
+
+Illumina_Reads_Directory/
+├── Prefix01_HQ_1.fastq.gz
+├── Prefix01_HQ_2.fastq.gz
+├── Prefix02_HQ_1.fastq.gz
+├── Prefix02_HQ_2.fastq.gz
+├── Prefix03_HQ_1.fastq.gz
+├── Prefix03_HQ_2.fastq.gz
+└── ......
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-from-polishing">
+<h2>Start from Polishing<a class="headerlink" href="#start-from-polishing" title="Permalink to this headline">¶</a></h2>
+<p>Start the pipeline from Polishing.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ONT_Reads_Directory/
+├── Prefix01.fasta
+├── Prefix02.fasta
+├── Prefix03.fasta
+├── Prefix04.fasta
+├── Prefix05.fasta
+└── ......
+
+Illumina_Reads_Directory/
+├── Prefix01_HQ_1.fastq.gz
+├── Prefix01_HQ_2.fastq.gz
+├── Prefix02_HQ_1.fastq.gz
+├── Prefix02_HQ_2.fastq.gz
+├── Prefix03_HQ_1.fastq.gz
+├── Prefix03_HQ_2.fastq.gz
+└── ......
+</pre></div>
+</div>
+</div>
+<div class="section" id="sample-sheet">
+<h2>Sample Sheet<a class="headerlink" href="#sample-sheet" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-given docutils" id="id1">
+<caption><span class="caption-text">Sample Sheet</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Sample</th>
+<th class="head">Barcode</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>example1</td>
+<td>barcode01</td>
+</tr>
+<tr class="row-odd"><td>example2</td>
+<td>barcode02</td>
+</tr>
+<tr class="row-even"><td>example3</td>
+<td>barcode03</td>
+</tr>
+<tr class="row-odd"><td>example4</td>
+<td>barcode04</td>
+</tr>
+<tr class="row-even"><td>example5</td>
+<td>barcode05</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>The type of sample sheet file is CSV (split cell contents by comma) or TSV (split cell contents by tab).</li>
+<li>The format of barcode name: barcodeXX (“barcode” can be any characters, but XX must be two digits: 01,02,03,…,10,11,12,…)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="OutputFileStructure.html" class="btn btn-neutral float-right" title="Output File Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="GetStarted.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Yan Zhou
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import org.controlsfx.control.CheckComboBox?>
+
+<AnchorPane minHeight="135.0" minWidth="532.0" prefHeight="141.0" prefWidth="544.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mbio.ncct.ont.view.AdvancedBasecallingController">
+   <children>
+      <CheckComboBox fx:id="ccbBarcodeKits" layoutX="35.0" layoutY="53.0" prefHeight="26.0" prefWidth="476.0" />
+      <Label layoutX="36.0" layoutY="28.0" text="Select Barcode Kits" />
+      <Group layoutX="386.0" layoutY="90.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#Cancel" text="Cancel" />
+            <Button fx:id="btnAdBasecallApply" layoutX="62.0" mnemonicParsing="false" onAction="#OK" prefHeight="26.0" prefWidth="63.0" text="OK" />
+         </children>
+      </Group>
+   </children>
+</AnchorPane>
+

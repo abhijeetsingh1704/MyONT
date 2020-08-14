@@ -1,0 +1,220 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=8
+#PBS -l walltime=99750:00:00
+#PBS -q batch
+#PBS -N Unicycler_Job
+
+echo $(date) Pipeline starts.
+echo $(date) Your path to Nanopore reads is $ONTWORKSPACE .
+if [ "$METHOD" == "Hybrid assembly" ]; then
+  echo $(date) Your path to Illumina reads is $ILLUMINAWORKSPACE .
+fi
+cd $OUTPUTPATH
+currentDate=$(date '+%d-%m-%Y-%H-%M-%S')
+mkdir Analysis_$currentDate
+echo $(date) Your output path is $OUTPUTPATH/Analysis_$currentDate .
+
+mkdir $OUTPUTPATH/Analysis_$currentDate/Logs
+
+#Basecalling
+if $IF_BASECALLING ; then
+  echo $(date) Base calling starts. 
+  mkdir $OUTPUTPATH/Analysis_$currentDate/Basecalled
+  if $IF_GUPPYFAST ; then
+    echo $(date) Run guppy_basecaller with fast mode.
+    /opt/ont-guppy-cpu_3.0.3/bin/guppy_basecaller -c $CFG_FILE -i $ONTWORKSPACE -s $outputPath/$OUTPUTPATH/Analysis_$currentDate/Basecalled --num_callers $THREADS --cpu_threads_per_caller 1 -q 0 -r --enable_trimming on > $OUTPUTPATH/Analysis_$currentDate/Logs/guppy_basecaller.log
+  else
+    echo $(date) Run guppy_basecaller with high-accuracy mode.
+    /opt/ont-guppy-cpu_3.0.3/bin/guppy_basecaller --flowcell $FLOWCELL_ID --kit $KIT_NUMBER -i $ONTWORKSPACE -s $OUTPUTPATH/$OUTPUTPATH/Analysis_$currentDate/Basecalled --num_callers $THREADS --cpu_threads_per_caller 1 -q 0 -r --enable_trimming on > $OUTPUTPATH/Analysis_$currentDate/guppy_basecaller.log
+  fi
+  echo $(date) Base calling ends.
+else
+  echo $(date) No base calling.
+fi
+
+#Demultiplexing
+if $IF_DEMULTIPLEXING ; then
+  echo $(date) Demultiplexing starts.
+  mkdir $OUTPUTPATH/Analysis_$currentDate/Barcodes
+  if $IF_BASECALLING ; then
+    cd $OUTPUTPATH/Analysis_$currentDate/Basecalled
+  else
+    cd $ONTWORKSPACE
+  fi
+  if [ ! -z "$BARCODEKIT" ] ; then
+    echo $(date) Run guppy_barcoder with barcode kits "$BARCODEKIT".
+    /opt/ont-guppy-cpu_3.0.3/bin/guppy_barcoder -i $OUTPUTPATH/Analysis_$currentDate/Basecalled -s $OUTPUTPATH/Barcodes -t $THREADS -q 0 -r --barcode_kit $BARCODEKIT --trim_barcodes > $OUTPUTPATH/Analysis_$currentDate/Logs/guppy_barcoder.log
+  else 
+    echo $(date) Run guppy_barcoder without barcode kits.
+    /opt/ont-guppy-cpu_3.0.3/bin/guppy_barcoder -i $OUTPUTPATH/Analysis_$currentDate/Basecalled -s $OUTPUTPATH/Analysis_$currentDate/Barcodes -t $THREADS -q 0 -r --trim_barcodes > $OUTPUTPATH/Analysis_$currentDate/Logs/guppy_barcoder.log
+  fi
+  #Map barcode to sample name
+  cd $OUTPUTPATH/Analysis_$currentDate/Barcodes
+  if [ ! -z "$SAMPLESHEET" ] ; then
+    declare -A samplesheet=$SAMPLESHEET
+    if [ ! -z "$BARCODENUMBERS" ]; then
+      echo $(date) Map selected barcodeIDs to sample name by sample sheet. 
+      for f in $(eval echo $BARCODENUMBERS'*.fastq'); do
+        cp $f ${samplesheet[${f%/*}]}".fastq"
+      done
+    else
+      echo $(date) Map all barcodeID to sample name by sample sheet.
+      for f in barcode*/*.fastq; do
+        cp $f ${samplesheet[${f%/*}]}".fastq"
+      done
+    fi
+  else
+    echo $(date) Rename the barcodeIDs with the prefix.
+    for f in barcode*/*.fastq; do
+      cp $f "$PREFIX"$(echo ${filename%/*} | egrep -o "[1-9][0-9]*")".fastq"
+    done
+  fi
+else
+  echo $(date) No demultiplexing.
+fi
+  
+if $IF_DEMULTIPLEXING ; then
+  cd OUTPUTPATH/Analysis_$currentDate/Barcodes
+elif $IF_BASECALLING ; then
+  cd OUTPUTPATH/Analysis_$currentDate/Basecalled
+  cat *.fastq > $PREFIX.fastq
+  rm fastq_*.fastq
+else 
+  cd $ONTWORKSPACE
+fi
+  
+for f in *.fastq ; do
+  pf=${f%.*}
+  #Adapter trimming
+  if $IF_ADAPTERTRIMMING && $IF_READSFILTER ; then
+    echo $(date) [$pf] Adapter trimming starts.
+    mkdir OUTPUTPATH/Analysis_$currentDate/AdapterTrimmedFiles
+    source /opt/anaconda3/bin/activate porechop
+    if $IF_NOSPLIT ; then
+      porechop -i $f --no_split -o $OUTPUTPATH/Analysis_$currentDate/AdapterTrimmedFiles/"$pf"_trimmed.fastq -t $THREADS > $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_trimmed.log
+    else
+      porechop -i $f -o $OUTPUTPATH/Analysis_$currentDate/AdapterTrimmedFiles/"$pf"_trimmed.fastq -t $THREADS > $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_trimmed.log
+    fi
+    echo $(date) [$pf] Adapter trimming ends.
+    conda deactivate
+  else
+    echo $(date) [$pf] No adapter trimming.
+  fi
+
+  #Reads filter
+  if $IF_READSFILTER ; then
+    if $IF_ADAPTERTRIMMING ; then
+      cd $OUTPUTPATH/Analysis_$currentDate/AdapterTrimmedFiles
+    else
+      cd $ONTWORKSPACE
+    fi
+    echo $(date) [$pf] Reads filter starts.
+    mkdir OUTPUTPATH/Analysis_$currentDate/FiltedFiles
+    source /opt/anaconda3/bin/activate nanofilt
+    cat "$pf"*.fastq | NanoFilt -q $SCORE -l $LENGTH --headcrop $HEADCROP --logfile $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_filted.fastq > $OUTPUTPATH/Analysis_$currentDate/FiltedFiles/"$pf"_filted.log  
+    conda deactivate
+    echo $(date) [$pf] Check read quality after reads filter.
+    cd $OUTPUTPATH/Analysis_$currentDate/FiltedFiles
+    mkdir -p mkdir -p $OUTPUTPATH/Analysis_$currentDate/StatFiles
+    NanoStat --fastq "$pf"*.fastq -t $THREADS > $OUTPUTPATH/Analysis_$currentDate/StatFiles/"$pf"_filted_stat.txt
+    conda deactivate
+  else
+    echo $(date) [$pf] No reads filter.
+  fi
+
+  #Assembly
+  if $IF_ASSEMBLY ; then
+    if $IF_READSFILTER ; then
+      cd $OUTPUTPATH/Analysis_$currentDate/FiltedFiles
+    else
+      cd $ONTWORKSPACE
+    fi 
+    echo $(date) [$pf] Assembly starts.
+    mkdir $OUTPUTPATH/Analysis_$currentDate/Assembly
+    source /opt/anaconda3/bin/activate unicycler
+    mkdir -p ~/tmp_assembly_$currentDate/"$pf"_Assembly
+    cp "$pf"*.fastq ~/tmp_assembly
+    if [ "$METHOD" == "Long-read-only assembly" ]; then
+      echo $(date) [$pf] Long-read-only assembly starts. 
+      if $IF_VCF ; then
+        unicycler -l ~/tmp_assembly_$currentDate/"$pf"*.fastq -o ~/tmp_assembly/"$pf"_Assembly -t $THREADS --mode $MODE --vcf > $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_assembly.log
+      else 
+        unicycler -l ~/tmp_assembly_$currentDate/"$pf"*.fastq -o ~/tmp_assembly/"$pf"_Assembly -t $THREADS --mode $MODE > $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_assembly.log
+      fi
+      cp -r ~/tmp_assembly_$currentDate/"$pf"_Assembly $OUTPUTPATH/Analysis_$currentDate/Assembly
+    else
+      echo $(date) [$pf] Hybrid assembly starts. 
+      cp --no-preserve=mode $ILLUMINAWORKSPACE/"$pf"*R1* ~/tmp_assembly
+      cp --no-preserve=mode $ILLUMINAWORKSPACE/"$pf"*R2* ~/tmp_assembly
+      if $IF_VCF ; then
+        unicycler -1 ~/tmp_assembly_$currentDate/"$pf"*R1* -2 ~/tmp_assembly_$currentDate/"$pf"*R1* -l ~/tmp_assembly_$currentDate/"$pf"*.fastq -o ~/tmp_assembly_$currentDate/"$pf"_Assembly -t $THREADS --mode $MODE --vcf > $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_assembly.log
+      else
+        unicycler -1 ~/tmp_assembly_$currentDate/"$pf"*R1* -2 ~/tmp_assembly_$currentDate/"$pf"*R1* -l ~/tmp_assembly_$currentDate/"$pf"*.fastq -o ~/tmp_assembly_$currentDate/"$pf"_Assembly -t $THREADS --mode $MODE > $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_assembly.log
+      fi
+      cp -r ~/tmp_assembly_$currentDate/"$pf"_Assembly $OUTPUTPATH/Analysis_$currentDate
+    fi
+    rm -r ~/tmp_assembly_$currentDate
+    echo $(date) [$pf] Assembly ends.
+    conda deactivate
+  else
+    echo $(date) No assembly.
+  fi
+  
+  #Polishing
+  if $IF_POLISHING; then
+    echo $(date) [$pf] Polishing starts. Polishing $PTIMES times.
+    mkdir $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing
+    if $IF_ASSEMBLY ; then
+      cp $OUTPUTPATH/Analysis_$currentDate/"$pf"_Assembly/assembly.fasta $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/assembly_1.fasta
+      cd $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing
+    elif $IF_READSFILTER ; then
+      cd $OUTPUTPATH/Analysis_$currentDate/FiltedFiles
+      source /opt/anaconda3/bin/activate seqtk
+      seqtk seq -a "$pf"*.fastq > $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/assembly_1.fasta
+      conda deactivate
+    else
+      cd $ONTWORKSPACE
+      cat *.fasta > $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/assembly_1.fasta
+    fi
+    cd $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing
+    for ((i=1; i<=$PTIMES; i++))
+    do
+      echo $(date) [$pf] $i polishing starts.
+      source /opt/anaconda3/bin/activate bwa
+      if [ "$i" -ne 1 ] ; then
+        cp $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/pilon_"$[i-1]".fasta $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/assembly_"$i".fasta
+      fi
+      echo $(date) [$pf] Align Illumina reads to the Nanopore assembly.
+      bwa index $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/assembly_"$i".fasta >> $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_polishing_"$i".log
+      bwa mem -t $THREADS $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/assembly_"$i".fasta $ILLUMINAWORKSPACE/"$pf"*R1* $ILLUMINAWORKSPACE/"$pf"*R2* > $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/aln_"$i".sam
+      conda deactivate
+      source /opt/anaconda3/bin/activate unicycler
+      samtools sort $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/aln_"$i".sam -o $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/aln_"$i".sorted.bam >> $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_polishing_"$i".log
+      echo $(date) [$pf] Index the files.
+      samtools index $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/aln_"$i".sorted.bam >> $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_polishing_"$i".log
+      samtools faidx $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/assembly_"$i".fasta >> $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_polishing_"$i".log
+      echo $(date) [$pf] Run pilon.
+      pilon --genome $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/assembly_"$i".fasta --frags $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/aln_"$i".sorted.bam --output $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/pilon_"$i" --fix all --mindepth 0.5 --changes --verbose --threads $THREADS >> $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_polishing_"$i".log
+      conda deactivate
+      echo $(date) [$pf] $i polishing ends.
+    done
+    echo $(date) [$pf] Polishing ends.
+    #BUSCO check
+    if $IF_BUSCO; then
+      echo $(date) [$pf] BUSCO starts with the lineage $LINEAGE.
+      source /opt/anaconda3/bin/activate busco
+      mkdir ~/tmp_busco_$currentDate
+      cp $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing/"$pf"_pilon_"$PTIMES".fasta ~/tmp_busco_$currentDate
+      cd ~/tmp_busco_$currentDate
+      echo $(date) [$pf] Run BUSCO.
+      run_busco -i ~/tmp_busco_$currentDate/"$pf"_pilon_"$PTIMES".fasta -o "$pf"_busco -l /opt/busco/database/$LINEAGE -m geno -c $THREADS > $OUTPUTPATH/Analysis_$currentDate/Logs/"$pf"_busco.log
+      cp -r ~/tmp_busco_$currentDate/run_"$pf"_busco $OUTPUTPATH/Analysis_$currentDate/"$pf"_Polishing
+      rm -r ~/tmp_busco_$currentDate
+      echo $(date) [$pf] BUSCO ends.
+      conda deactivate
+    fi
+  else
+    echo $(date) No polishing.
+  fi
+done
+echo $(date) Job ends, goodbye.

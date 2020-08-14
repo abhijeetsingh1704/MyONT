@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Base Calling Settings &mdash; ontpipeline2  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Demultiplexing Settings" href="DemultiplexingSettings.html" />
+    <link rel="prev" title="General Settings" href="GeneralSettings.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ontpipeline2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="GetStarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InputFileStructure.html">Input File Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OutputFileStructure.html">Output File Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GeneralSettings.html">General Settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Base Calling Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#flowcell-id-2-required">Flowcell ID  (Required)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#kit-number-2-required">Kit Number  (Required)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mode-required">Mode (Required)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#device-required">Device (Required)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cpu-threads-per-caller-1-default">cpu_threads_per_caller  (Default)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#records-per-fastq-2-default">records_per_fastq  (Default)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recursive-2-default">recursive  (Default)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DemultiplexingSettings.html">Demultiplexing Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadsFilterSettings.html">Reads Filter Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AssemblySettings.html">Assembly Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolishingSettings.html">Polishing Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QandA.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ontpipeline2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Base Calling Settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/BasecallingSettings.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="base-calling-settings">
+<h1>Base Calling Settings<a class="headerlink" href="#base-calling-settings" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/BasecallingSettings.png" src="_images/BasecallingSettings.png" />
+<div class="section" id="flowcell-id-2-required">
+<h2>Flowcell ID <a class="footnote-reference" href="#id7" id="id1">[2]</a> (Required)<a class="headerlink" href="#flowcell-id-2-required" title="Permalink to this headline">¶</a></h2>
+<p>Choose the Flowcell ID from the select list.</p>
+</div>
+<div class="section" id="kit-number-2-required">
+<h2>Kit Number <a class="footnote-reference" href="#id7" id="id2">[2]</a> (Required)<a class="headerlink" href="#kit-number-2-required" title="Permalink to this headline">¶</a></h2>
+<p>Choose the kit number from the select list.</p>
+<img alt="_images/AdvancedBasecallingSettings.png" src="_images/AdvancedBasecallingSettings.png" />
+</div>
+<div class="section" id="mode-required">
+<h2>Mode (Required)<a class="headerlink" href="#mode-required" title="Permalink to this headline">¶</a></h2>
+<p>Set the Guppy base calling mode.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Default: high-accuracy.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="device-required">
+<h2>Device (Required)<a class="headerlink" href="#device-required" title="Permalink to this headline">¶</a></h2>
+<p>Set the sequencing device.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Default: PromethION.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cpu-threads-per-caller-1-default">
+<h2>cpu_threads_per_caller <a class="footnote-reference" href="#id6" id="id3">[1]</a> (Default)<a class="headerlink" href="#cpu-threads-per-caller-1-default" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Set value: 1.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="records-per-fastq-2-default">
+<h2>records_per_fastq <a class="footnote-reference" href="#id7" id="id4">[2]</a> (Default)<a class="headerlink" href="#records-per-fastq-2-default" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Set value: 0.</li>
+<li>Use a single file (per worker, per run id).</li>
+</ul>
+</div>
+</div>
+<div class="section" id="recursive-2-default">
+<h2>recursive <a class="footnote-reference" href="#id7" id="id5">[2]</a> (Default)<a class="headerlink" href="#recursive-2-default" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Set value: search for input files recursively.</li>
+</ul>
+</div>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td>Guppy v3.0.3 Release <a class="reference external" href="https://community.nanoporetech.com/posts/guppy-3-0-release">https://community.nanoporetech.com/posts/guppy-3-0-release</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>, <a class="fn-backref" href="#id4">3</a>, <a class="fn-backref" href="#id5">4</a>)</em> How to configure Guppy parameters <a class="reference external" href="https://community.nanoporetech.com/protocols/Guppy-protocol-preRev/v/gpb_2003_v1_revg_14dec2018/how-to-configure-guppy-parameters">https://community.nanoporetech.com/protocols/Guppy-protocol-preRev/v/gpb_2003_v1_revg_14dec2018/how-to-configure-guppy-parameters</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="DemultiplexingSettings.html" class="btn btn-neutral float-right" title="Demultiplexing Settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="GeneralSettings.html" class="btn btn-neutral" title="General Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Yan Zhou
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

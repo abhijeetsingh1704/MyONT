@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reads Filter Settings &mdash; ontpipeline2  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Assembly Settings" href="AssemblySettings.html" />
+    <link rel="prev" title="Demultiplexing Settings" href="DemultiplexingSettings.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ontpipeline2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="GetStarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InputFileStructure.html">Input File Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OutputFileStructure.html">Output File Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GeneralSettings.html">General Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BasecallingSettings.html">Base Calling Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DemultiplexingSettings.html">Demultiplexing Settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reads Filter Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#porechop-settings-1-optional">Porechop Settings  (Optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#read-score-2-required">Read Score  (Required)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#read-length-2-required">Read Length [2] (Required)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#head-crop-2-required">Head Crop  (Required)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="AssemblySettings.html">Assembly Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolishingSettings.html">Polishing Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QandA.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ontpipeline2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Reads Filter Settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ReadsFilterSettings.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="reads-filter-settings">
+<h1>Reads Filter Settings<a class="headerlink" href="#reads-filter-settings" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/ReadsFilterSettings.png" src="_images/ReadsFilterSettings.png" />
+<img alt="_images/AdvancedReadsFilterSettings.png" src="_images/AdvancedReadsFilterSettings.png" />
+<div class="section" id="porechop-settings-1-optional">
+<h2>Porechop Settings <a class="footnote-reference" href="#id4" id="id1">[1]</a> (Optional)<a class="headerlink" href="#porechop-settings-1-optional" title="Permalink to this headline">¶</a></h2>
+<p>Set Porechop options.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Select “I want to trim adapter” if you want to use Porechop to trim adapters. Defaut: selected.</li>
+<li>Select “I want to skip splitting reads based on middle adapters” if you do not want to splt reads when an adapter is found in the middle. Default: not selected.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="read-score-2-required">
+<h2>Read Score <a class="footnote-reference" href="#id5" id="id2">[2]</a> (Required)<a class="headerlink" href="#read-score-2-required" title="Permalink to this headline">¶</a></h2>
+<p>Set a minimum average read quality score to filter the reads.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Default: 9.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="read-length-2-required">
+<h2>Read Length [2] (Required)<a class="headerlink" href="#read-length-2-required" title="Permalink to this headline">¶</a></h2>
+<p>Set a minimum read length to filter reads.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Default: 500.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="head-crop-2-required">
+<h2>Head Crop <a class="footnote-reference" href="#id5" id="id3">[2]</a> (Required)<a class="headerlink" href="#head-crop-2-required" title="Permalink to this headline">¶</a></h2>
+<p>Set n nucleotides to be trimmed from start of read.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Default: 50.</li>
+</ul>
+</div>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Porechop <a class="reference external" href="https://github.com/rrwick/Porechop">https://github.com/rrwick/Porechop</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> NanoFilt <a class="reference external" href="https://github.com/wdecoster/nanofilt">https://github.com/wdecoster/nanofilt</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="AssemblySettings.html" class="btn btn-neutral float-right" title="Assembly Settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="DemultiplexingSettings.html" class="btn btn-neutral" title="Demultiplexing Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Yan Zhou
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

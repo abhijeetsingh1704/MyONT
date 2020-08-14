@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation &mdash; ontpipeline2  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Input File Structure" href="InputFileStructure.html" />
+    <link rel="prev" title="ONT Pipeline Document (English)" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ontpipeline2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#anaconda-installation">Anaconda Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#jdk8-installation-9">JDK8 Installation </a></li>
+<li class="toctree-l3"><a class="reference internal" href="#guppy-installation">Guppy Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#porechop-installation">Porechop Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nanostat-installation">NanoStat Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nanofilt-installation">NanoFilt Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unicycler-installation">Unicycler Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#busco-installation">BUSCO Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bwa-installation">BWA Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#seqtk-installation">Seqtk Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trimmomatic-installation">Trimmomatic Installation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="InputFileStructure.html">Input File Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OutputFileStructure.html">Output File Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GeneralSettings.html">General Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BasecallingSettings.html">Base Calling Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DemultiplexingSettings.html">Demultiplexing Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadsFilterSettings.html">Reads Filter Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="AssemblySettings.html">Assembly Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PolishingSettings.html">Polishing Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QandA.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ontpipeline2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/GetStarted.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="anaconda-installation">
+<h3>Anaconda Installation<a class="headerlink" href="#anaconda-installation" title="Permalink to this headline">¶</a></h3>
+<p>Installing on Linux <a class="reference external" href="https://docs.anaconda.com/anaconda/install/linux/">https://docs.anaconda.com/anaconda/install/linux/</a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Anaconda is installed in <code class="file docutils literal notranslate"><span class="pre">/opt</span></code> directory .</li>
+</ul>
+</div>
+</div>
+<div class="section" id="jdk8-installation-9">
+<h3>JDK8 Installation <a class="footnote-reference" href="#id21" id="id2">[9]</a><a class="headerlink" href="#jdk8-installation-9" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Download source pakage from Oracle. <a class="reference external" href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></li>
+<li>Extract JDK8 files to the target folder.</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo mkdir /usr/lib/jvm
+sudo tar -zxvf jdk-8u211-linux-x64.tar.gz -C /usr/lib/jvm
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Set environment variables for JDK8.</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo nano ~/.bashrc
+<span class="c1">#set oracle jdk environment</span>
+<span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/lib/jvm/jdk-1.8.0_211
+<span class="nb">export</span> <span class="nv">JRE_HOME</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/jre
+<span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span>.:<span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/lib:<span class="si">${</span><span class="nv">JRE_HOME</span><span class="si">}</span>/lib
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">JAVA_HOME</span><span class="si">}</span>/bin:<span class="nv">$PATH</span>
+<span class="c1">#make changes take effect immediately</span>
+<span class="nb">source</span> ~/.bashrc
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Set JDK8 to jdk-1.8.0_211.</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-1.8.0_211/bin/java <span class="m">300</span>
+sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-1.8.0_211/bin/javac <span class="m">300</span>
+sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk-1.8.0_211/bin/jar <span class="m">300</span>
+sudo update-alternatives --install /usr/bin/javah javah /usr/lib/jvm/jdk-1.8.0_211/bin/javah <span class="m">300</span>
+sudo update-alternatives --install /usr/bin/javap javap /usr/lib/jvm/jdk-1.8.0_211/bin/javap <span class="m">300</span>
+<span class="c1">#set path to jdk-1.8.0_211</span>
+sudo update-alternatives --config java
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Test</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java -version
+<span class="c1"># The following messages should be showed if it works.</span>
+java version <span class="s2">&quot;1.8.0_211&quot;</span>
+Java<span class="o">(</span>TM<span class="o">)</span> SE Runtime Environment <span class="o">(</span>build <span class="m">1</span>.8.0_211-b12<span class="o">)</span>
+Java HotSpot<span class="o">(</span>TM<span class="o">)</span> <span class="m">64</span>-Bit Server VM <span class="o">(</span>build <span class="m">25</span>.211-b12, mixed mode<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="guppy-installation">
+<h3>Guppy Installation<a class="headerlink" href="#guppy-installation" title="Permalink to this headline">¶</a></h3>
+<p>Guppy is a data processing toolkit that contains the Oxford Nanopore Technologies’ basecalling algorithms, and several bioinformatic post-processing features. <a class="footnote-reference" href="#id13" id="id3">[1]</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy-cpu_3.0.3_linux64.tar.gz
+tar -xf ont-guppy-cpu_3.0.3_linux64.tar.gz
+sudo mv ont-guppy-cpu_3.0.3_linux64 /opt/ont-guppy-cpu_3.0.3
+</pre></div>
+</div>
+</div>
+<div class="section" id="porechop-installation">
+<h3>Porechop Installation<a class="headerlink" href="#porechop-installation" title="Permalink to this headline">¶</a></h3>
+<p>Porechop is a tool for finding and removing adapters from Oxford Nanopore reads. <a class="footnote-reference" href="#id14" id="id4">[2]</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/bin/conda create -n porechop
+<span class="nb">source</span> /opt/anaconda3/bin/activate porechop
+conda install -c bioconda porechop
+conda deactivate
+</pre></div>
+</div>
+</div>
+<div class="section" id="nanostat-installation">
+<h3>NanoStat Installation<a class="headerlink" href="#nanostat-installation" title="Permalink to this headline">¶</a></h3>
+<p>NanoStat calculates various statistics from a long read sequencing dataset in fastq, bam or albacore sequencing summary format. <a class="footnote-reference" href="#id15" id="id5">[3]</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/bin/conda create -n nanostat
+<span class="nb">source</span> /opt/anaconda3/bin/activate nanostat
+conda install -c bioconda nanostat
+conda deactivate
+</pre></div>
+</div>
+</div>
+<div class="section" id="nanofilt-installation">
+<h3>NanoFilt Installation<a class="headerlink" href="#nanofilt-installation" title="Permalink to this headline">¶</a></h3>
+<p>NanoFilt filters and trims long read sequencing data. <a class="footnote-reference" href="#id16" id="id6">[4]</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/bin/conda create -n nanofilt
+<span class="nb">source</span> /opt/anaconda3/bin/activate nanofilt
+conda install -c bioconda nanofilt
+conda deactivate
+</pre></div>
+</div>
+</div>
+<div class="section" id="unicycler-installation">
+<h3>Unicycler Installation<a class="headerlink" href="#unicycler-installation" title="Permalink to this headline">¶</a></h3>
+<p>Unicycler is an assembly pipeline for bacterial genomes. <a class="footnote-reference" href="#id17" id="id7">[5]</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/bin/conda create -n unicycler
+<span class="nb">source</span> /opt/anaconda3/bin/activate unicylcer
+conda install -c bioconda unicycler
+conda install -c bioconda bcftools <span class="c1"># for .vcf file</span>
+conda deactivate
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<ul class="last simple">
+<li>Change the memory setting in Pilon is necessary or it could be failed to start <a class="footnote-reference" href="#id22" id="id8">[10]</a> .</li>
+</ul>
+</div>
+</div>
+<div class="section" id="busco-installation">
+<h3>BUSCO Installation<a class="headerlink" href="#busco-installation" title="Permalink to this headline">¶</a></h3>
+<p>BUSCO v3 provides quantitative measures for the assessment of genome assembly, gene set, and transcriptome completeness, based on evolutionarily-informed expectations of gene content from near-universal single-copy orthologs selected from OrthoDB v9. <a class="footnote-reference" href="#id18" id="id9">[6]</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/bin/conda create -n busco
+<span class="nb">source</span> /opt/anaconda3/bin/activate busco
+conda install -c bioconda busco
+conda deactivate
+</pre></div>
+</div>
+</div>
+<div class="section" id="bwa-installation">
+<h3>BWA Installation<a class="headerlink" href="#bwa-installation" title="Permalink to this headline">¶</a></h3>
+<p>BWA is a software package for mapping low-divergent sequences against a large reference genome. <a class="footnote-reference" href="#id19" id="id10">[7]</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/bin/conda create -n bwa
+<span class="nb">source</span> /opt/anaconda3/bin/activate bwa
+conda install -c bioconda bwa
+conda deactivate
+</pre></div>
+</div>
+</div>
+<div class="section" id="seqtk-installation">
+<h3>Seqtk Installation<a class="headerlink" href="#seqtk-installation" title="Permalink to this headline">¶</a></h3>
+<p>Seqtk is a fast and lightweight tool for processing sequences in the FASTA or FASTQ format. <a class="footnote-reference" href="#id20" id="id11">[8]</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/bin/conda create -n seqtk
+<span class="nb">source</span> /opt/anaconda3/bin/activate seqtk
+conda install -c bioconda seqtk
+conda deactivate
+</pre></div>
+</div>
+</div>
+<div class="section" id="trimmomatic-installation">
+<h3>Trimmomatic Installation<a class="headerlink" href="#trimmomatic-installation" title="Permalink to this headline">¶</a></h3>
+<p>Trimmomatic is a flexible read trimming tool for Illumina NGS data. <a class="footnote-reference" href="#id23" id="id12">[11]</a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/bin/conda create -n trimmomatic
+<span class="nb">source</span> /opt/anaconda3/bin/activate trimmomatic
+conda install -c bioconda trimmomatic
+conda deactivate
+</pre></div>
+</div>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td>Guppy v3.0.3 Release <a class="reference external" href="https://community.nanoporetech.com/posts/guppy-3-0-release">https://community.nanoporetech.com/posts/guppy-3-0-release</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id14" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td>Porechop <a class="reference external" href="https://github.com/rrwick/Porechop">https://github.com/rrwick/Porechop</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id15" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[3]</a></td><td>NanoStat <a class="reference external" href="https://github.com/wdecoster/nanostat">https://github.com/wdecoster/nanostat</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id16" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[4]</a></td><td>NanoFilt <a class="reference external" href="https://github.com/wdecoster/nanofilt">https://github.com/wdecoster/nanofilt</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id17" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[5]</a></td><td>Unicycler <a class="reference external" href="https://github.com/rrwick/Unicycler">https://github.com/rrwick/Unicycler</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id18" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[6]</a></td><td>BUSCO v3 <a class="reference external" href="https://busco.ezlab.org">https://busco.ezlab.org</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id19" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[7]</a></td><td>BWA <a class="reference external" href="https://github.com/lh3/bwa">https://github.com/lh3/bwa</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id20" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id11">[8]</a></td><td>Seqtk <a class="reference external" href="https://github.com/lh3/seqtk">https://github.com/lh3/seqtk</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id21" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[9]</a></td><td>Ubuntu 安装 JDK 7 / JDK8 的两种方式 <a class="reference external" href="https://www.cnblogs.com/a2211009/p/4265225.html">https://www.cnblogs.com/a2211009/p/4265225.html</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id22" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[10]</a></td><td>Pilon step runs out of error <a class="reference external" href="https://github.com/rrwick/Unicycler/issues/147">https://github.com/rrwick/Unicycler/issues/147</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id23" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id12">[11]</a></td><td>Trimmomatic <a class="reference external" href="http://www.usadellab.org/cms/?page=trimmomatic">http://www.usadellab.org/cms/?page=trimmomatic</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="InputFileStructure.html" class="btn btn-neutral float-right" title="Input File Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="ONT Pipeline Document (English)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Yan Zhou
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

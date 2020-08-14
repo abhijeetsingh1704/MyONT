@@ -1,0 +1,295 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Assembly Settings &mdash; ontpipeline2  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Polishing Settings" href="PolishingSettings.html" />
+    <link rel="prev" title="Reads Filter Settings" href="ReadsFilterSettings.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ontpipeline2
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="GetStarted.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="InputFileStructure.html">Input File Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="OutputFileStructure.html">Output File Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GeneralSettings.html">General Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BasecallingSettings.html">Base Calling Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DemultiplexingSettings.html">Demultiplexing Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ReadsFilterSettings.html">Reads Filter Settings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Assembly Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mode-1-required">Mode  (Required)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#method-1-required">Method  (Required)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vcf-1-optional">VCF  (Optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trimmomatic-settings-2">Trimmomatic settings </a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="PolishingSettings.html">Polishing Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QandA.html">FAQ</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ontpipeline2</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Assembly Settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/AssemblySettings.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="assembly-settings">
+<h1>Assembly Settings<a class="headerlink" href="#assembly-settings" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/AssemblySettings.png" src="_images/AssemblySettings.png" />
+<div class="section" id="mode-1-required">
+<h2>Mode <a class="footnote-reference" href="#id5" id="id1">[1]</a> (Required)<a class="headerlink" href="#mode-1-required" title="Permalink to this headline">¶</a></h2>
+<p>Choose an assembly mode.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Conservative: Conservative mode is least likely to produce a complete assembly but has a very low risk of misassembly.</li>
+<li>Normal: Normal mode is intermediate regarding both completeness and misassembly risk.</li>
+<li>Bold: Bold mode is most likely to produce a complete assembly but carries greater risk of misassembly.</li>
+<li>Default: Normal.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="method-1-required">
+<h2>Method <a class="footnote-reference" href="#id5" id="id2">[1]</a> (Required)<a class="headerlink" href="#method-1-required" title="Permalink to this headline">¶</a></h2>
+<p>Choose an assembly method.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Long-read-only assembly: Long-read-only assembly using only long reads.</li>
+<li>Hybrid assembly: Hybrid assembly using both Illumina reads and long reads.</li>
+<li>Default: Hybrid assembly.</li>
+</ul>
+</div>
+<img alt="_images/AdvancedAssemblySettings.png" src="_images/AdvancedAssemblySettings.png" />
+</div>
+<div class="section" id="vcf-1-optional">
+<h2>VCF <a class="footnote-reference" href="#id5" id="id3">[1]</a> (Optional)<a class="headerlink" href="#vcf-1-optional" title="Permalink to this headline">¶</a></h2>
+<p>Produce a VCF by mapping the short reads to the final assembly if selected.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Default: not selected.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="trimmomatic-settings-2">
+<h2>Trimmomatic settings <a class="footnote-reference" href="#id6" id="id4">[2]</a><a class="headerlink" href="#trimmomatic-settings-2" title="Permalink to this headline">¶</a></h2>
+<p>Trim Illumina reads when it is necessary.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>Illumina reads will be trimmed in “Assembly” step only when all the following two conditions are satisfied:<ol class="arabic">
+<li>Hybrid assembly;</li>
+<li>Illumina reads filename contains no “HQ”.</li>
+</ol>
+</li>
+<li>Remove Illumina adapters provided in the NexteraPE-PE.fa file (provided). Initially Trimmomatic will look for seed matches (16 bases) allowing maximally 2 mismatches.
+These seeds will be extended and clipped if in the case of paired end reads a score of 30 is reached (about 50 bases),
+or in the case of single ended reads a score of 10, (about 17 bases).</li>
+<li>Remove leading low quality or N bases (below quality 3)</li>
+<li>Remove trailing low quality or N bases (below quality 3)</li>
+<li>Scan the read with a 4-base wide sliding window, cutting when the average quality per base drops below 15</li>
+<li>Drop reads which are less than 40 bases long after these steps</li>
+</ul>
+</div>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>, <a class="fn-backref" href="#id3">3</a>)</em> Unicycler <a class="reference external" href="https://github.com/rrwick/Unicycler">https://github.com/rrwick/Unicycler</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td>Trimmomatic <a class="reference external" href="http://www.usadellab.org/cms/?page=trimmomatic">http://www.usadellab.org/cms/?page=trimmomatic</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PolishingSettings.html" class="btn btn-neutral float-right" title="Polishing Settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ReadsFilterSettings.html" class="btn btn-neutral" title="Reads Filter Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Yan Zhou
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
